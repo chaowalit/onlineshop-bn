@@ -125,5 +125,32 @@ if (!function_exists('showYear')) {
 	}
 }
 
+if (!function_exists('uploads_image')) {
+	function uploads_image($input_file, $file_path){
+		try{
+			$file = \Input::file($input_file);
+			$input = array($input_file => $file);
+			$rules = array(
+				$input_file => 'required|image|max:5000'
+			);
+			$validator = \Validator::make($input, $rules);
+			if ( $validator->fails() )
+			{
+				return ['success' => false, 'errors' => $validator->getMessageBag()->toArray()];
+			}
+			else {
+				$tmpFilePath = $file_path;
+				$extension = explode('.', $file->getClientOriginalName());
+				$tmpFileName = time() . '-users-id-' . get_user()['id'] . '.' . $extension[(count($extension) - 1)];   //$file->getClientOriginalName();
+				\Input::file($input_file)->move($tmpFilePath, $tmpFileName);
+				$path = $tmpFilePath . $tmpFileName;
+				return ['success' => true, 'file' => asset($tmpFilePath . $tmpFileName), 'path' => $path];
+			}
+		}catch(\Exception $e){
+			return ['success' => false, 'errors' => $e->getMessage()];
+		}
+
+	}
+}
 
 ?>

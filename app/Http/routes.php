@@ -40,5 +40,8 @@ Route::group([
 		'uses' => 'ProfileSettingController@index',
 		'as' => 'get.profile_setting.index',
 	]);
-	
+	Route::post('/uploads_img_profile', [
+		'uses' => 'ProfileSettingController@uploads_img_profile',
+		'as' => 'post.profile_setting.uploads_img_profile',
+	]);
 });

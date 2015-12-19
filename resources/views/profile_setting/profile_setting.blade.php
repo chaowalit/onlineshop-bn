@@ -18,7 +18,7 @@
                   <h3 class="profile-username text-center">{{ get_user()['prefix'] }}{{ get_user()['first_name'] }} {{ get_user()['last_name'] }}</h3>
 
                   <p class="text-muted text-center">
-                      <input type="file" id="profile_img" style="margin: 0 auto;">
+                      <input type="file" name="profile_img" id="profile_img" style="margin: 0 auto;">
                       <input type="hidden" name="_token" value="{{ csrf_token() }}">
                   </p>
 
