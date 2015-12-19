@@ -19,6 +19,7 @@ if (!function_exists('get_user')) {
 			'instagram_url' => $auth->instagram_url,
 			'googleplus_url' => $auth->googleplus_url,
 			'email' => $auth->email,
+			'user_img' => $auth->user_img,
 			'remember_token' => $auth->remember_token,
 			'created_at' => date("Y-m-d H:i:s", strtotime($auth->created_at)),
 			'updated_at' => date("Y-m-d H:i:s", strtotime($auth->updated_at)),

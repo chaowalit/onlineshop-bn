@@ -7,32 +7,38 @@
 
       <!-- Profile Image -->
       <div class="box box-primary">
-          <div class="box-body box-profile">
-              <img class="profile-user-img img-responsive img-circle" src="{{ url("/bower_components/AdminLTE/dist/img/user2-160x160.jpg") }}" alt="User profile picture">
-
-              <h3 class="profile-username text-center">{{ get_user()['prefix'] }}{{ get_user()['first_name'] }} {{ get_user()['last_name'] }}</h3>
-
-              <p class="text-muted text-center">
-                <input type="file" id="profile_img" style="margin: 0 auto;">
-              </p>
-
-              <ul class="list-group list-group-unbordered">
-                  <li class="list-group-item">
-                    <b><i class="fa fa-facebook-square"></i> Facebook</b> <a class="pull-right">1,322</a>
-                  </li>
-                  <li class="list-group-item">
-                      <b><i class="fa fa-twitter-square"></i> Twitter</b> <a class="pull-right">543</a>
-                  </li>
-                  <li class="list-group-item">
-                      <b><i class="fa fa-instagram"></i> Instagram</b> <a class="pull-right">13,287</a>
-                  </li>
-                  <li class="list-group-item">
-                      <b><i class="fa fa-google-plus-square"></i> Google +</b> <a class="pull-right">13,287</a>
-                  </li>
-                </ul>
-
-              <a href="#" class="btn btn-primary btn-block" title="ขนาดรูปภาพโปรไฟล์ 160 x 160 px"><b>Upload Image</b></a>
+          <div style="height: 0px;">
+              <span class="username">
+                  <a href="#" class="pull-right btn-box-tool"><i class="fa fa-times"></i> </a>
+              </span>
           </div>
+          <form enctype="multipart/form-data" id="upload_form" role="form" method="POST" action="">
+              <div class="box-body box-profile">
+                  <img class="profile-user-img img-responsive img-circle" src="{{ url("/bower_components/AdminLTE/dist/img/user2-160x160.jpg") }}" alt="User profile picture" style="width: 160px !important;">
+                  <h3 class="profile-username text-center">{{ get_user()['prefix'] }}{{ get_user()['first_name'] }} {{ get_user()['last_name'] }}</h3>
+
+                  <p class="text-muted text-center">
+                      <input type="file" id="profile_img" style="margin: 0 auto;">
+                      <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                  </p>
+
+                  <ul class="list-group list-group-unbordered">
+                      <li class="list-group-item">
+                        <b><i class="fa fa-facebook-square"></i> Facebook</b> <a class="pull-right">1,322</a>
+                      </li>
+                      <li class="list-group-item">
+                          <b><i class="fa fa-twitter-square"></i> Twitter</b> <a class="pull-right">543</a>
+                      </li>
+                      <li class="list-group-item">
+                          <b><i class="fa fa-instagram"></i> Instagram</b> <a class="pull-right">13,287</a>
+                      </li>
+                      <li class="list-group-item">
+                          <b><i class="fa fa-google-plus-square"></i> Google +</b> <a class="pull-right">13,287</a>
+                      </li>
+                    </ul>
+                  <a id="btn_upload_profile_img" class="btn btn-primary btn-block" title="ขนาดรูปภาพโปรไฟล์ 160 x 160 px"><b>Upload Image</b></a>
+              </div>
+          </form>
           <!-- /.box-body -->
       </div>
       <!-- /.box -->

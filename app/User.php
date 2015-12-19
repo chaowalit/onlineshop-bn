@@ -41,7 +41,8 @@ class User extends Model implements AuthenticatableContract,
                             'instagram_url',
                             'googleplus_url',
                             'email', 
-                            'password'
+                            'password',
+                            'user_img'
                         ];
 
     /**
