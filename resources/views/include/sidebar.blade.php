@@ -8,7 +8,7 @@
           <img src="{{ url("/bower_components/AdminLTE/dist/img/user2-160x160.jpg") }}" class="img-circle" alt="User Image">
         </div>
         <div class="pull-left info">
-          <p>{{ get_user()['prefix'] }} {{ get_user()['first_name'] }} {{ get_user()['last_name'] }}</p>
+          <p>{{ get_user()['first_name'] }} {{ get_user()['last_name'] }}</p>
           <a href="/profile_setting"><i class="fa fa-info-circle text-info"></i> More info</a>
         </div>
       </div>
@@ -26,7 +26,7 @@
       <!-- sidebar menu: : style can be found in sidebar.less -->
       <ul class="sidebar-menu">
         <li class="header">Main Menu</li>
-        <li class="<?php echo ($menu_name == "dashboard" && $menu_level == 1)? "active":" " ?> treeview">
+        <li class="<?php echo ($menu_nav[($menu_level - 1)] == "dashboard" && $menu_level == 1)? "active":" " ?> treeview">
           <a href="/dashboard">
             <i class="fa fa-dashboard"></i> <span>Dashboard</span> 
           </a>
@@ -62,7 +62,7 @@
           </a>
         </li>
 
-        <li class="<?php echo ($menu_name == "profile_setting" && $menu_level == 1)? "active":" " ?> treeview">
+        <li class="<?php echo ($menu_nav[($menu_level - 1)] == "profile_setting" && $menu_level == 1)? "active":" " ?> treeview">
           <a href="/profile_setting">
             <i class="fa fa-cog"></i> <span>Profile & Setting</span> 
           </a>

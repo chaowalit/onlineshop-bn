@@ -27,7 +27,7 @@ class DashboardController extends OshController
             
         );
         
-        parent::render_view('dashboard/dashboard', $data, 'dashboard');
+        parent::render_view('dashboard.dashboard', $data, 'dashboard', 1);
     }
 
     /**

@@ -19,7 +19,7 @@ class ProfileSettingController extends OshController
     	$data = array(
 
 		);
-    	parent::render_view('profile_setting/profile_setting', $data, 'profile_setting');
+    	parent::render_view('profile_setting.profile_setting', $data, 'profile_setting', 1);
     }
 }
 
